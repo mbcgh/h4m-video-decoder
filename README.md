@@ -1,7 +1,7 @@
 # HVQM4 1.3/1.5 (*.h4m) Video Decoder
 
 This repro acts as a fork of the work previously done by Tilka who basically figured this all out. Unfortunatly, his version of the program comes with very little documentation or any sort of explanation on usage. A small bug in the original program prevents it from creating the folder it needs to dump the frames as well.
-This program only deals with video/frames. For audio, use the seperate/pre-existing [audio dumper.] (https://hcs64.com/mboard/forumlong.php?showthread=20147).
+This program only deals with video/frames. For audio, use the seperate/pre-existing [audio dumper.](https://hcs64.com/mboard/forumlong.php?showthread=20147).
 
 This README will act as a basic guide for if you want to get things up and running quickly.
 
