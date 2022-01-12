@@ -4,6 +4,9 @@
 #include <inttypes.h>
 #include <string.h>
 #include <stddef.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
 // ABI compatibility with HVQM4 1.3 is still kinda broken,
 // but native decoding is bit-perfect *shrug*
@@ -2119,7 +2122,7 @@ static void decode_video(Player *player, FILE *infile, uint32_t gop_start, uint1
     //if (frame_type == I_FRAME)
     {
         char name[50];
-        sprintf(name, "output/video_rgb_%u.ppm", gop_start + disp_id);
+        sprintf(name, "output/video_rgb_%04u.ppm", gop_start + disp_id);
         //char type = "ipb"[(frame_type >> 4) - 1];
         //sprintf(name, "output/video_rgb_%u_%u_%c.ppm", gop, disp_id, type);
         //printf("writing frame to %s...\n", name);
@@ -2395,6 +2398,11 @@ int main(int argc, char **argv)
     {
         fprintf(stderr, "error writing riff header\n");
         exit(EXIT_FAILURE);
+    }
+
+    struct stat st = {0};
+    if (stat("output", &st) == -1) {
+        mkdir("output", 0700);
     }
 
 #ifndef NATIVE
