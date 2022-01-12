@@ -1,28 +1,28 @@
 # HVQM4 1.3/1.5 (*.h4m) Video Decoder
 
 This repro acts as a fork of the work previously done by Tilka who basically figured this all out. Unfortunatly, his version of the program comes with very little documentation or any sort of explanation on usage. A small bug in the original program prevents it from creating the folder it needs to dump the frames as well.
-This program only deals with video/frames. For audio, use the seperate/pre-existing audio dumper
-[Original audio dumper](https://hcs64.com/mboard/forumlong.php?showthread=20147).
+This program only deals with video/frames. For audio, use the seperate/pre-existing [audio dumper.] (https://hcs64.com/mboard/forumlong.php?showthread=20147).
 
 This README will act as a basic guide for if you want to get things up and running quickly.
 
-##Prerequisites
+## Prerequisites
 00. You'll need some kind of Linux enviroment for this project. Any Ubuntu based distro should work just fine (you can run this within a VM if you're a Windows/Mac sucker)
 01. This guide assumes you are the root user.
 
-##Compiling
+## Compiling
 01. Open Terminal, install ``clang`` with ```sudo apt install clang```
 02. Within Terminal, change directory (cd) into your "hvqm4_video_decode"
 03. Compile! ou can either use the "make.sh" file or run the following command
+
 ``clang -march=native -O2 -funroll-loops -Wall -Wextra h4m_audio_decode.c -o h4m -DNATIVE=1``
 04. You should be left with a "h4m" file within the same folder after the compile has been completed.
 
-##Decoding / Usage
+## Decoding / Usage
 01. Place whatever .h4m file you wish to decode into the folder we mentioned previously (hvqm4_video_decode).
-02. Run the command ``./h4m party003.h4m b.wav`` while still in the "hvqm4_video_decode" directory.
+02. Run the command ``./h4m example.h4m b.wav`` while still in the "hvqm4_video_decode" directory.
 03. Done! This will output the individual frames into a folder it creates called "output". This folder is within the "hvqm4_video_decode" directory.
 
-##Frames -> Video (Optional)
+## Frames -> Video (Optional)
 There are a few ways you can do this, but this method can be done through command line and without much hassle. It'll result in a lossless .avi file.
 
 01. Install ffmpeg
