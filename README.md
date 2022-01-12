@@ -15,6 +15,8 @@ This README will act as a basic guide for if you want to get things up and runni
 03. Compile! ou can either use the "make.sh" file or run the following command
 
 ``clang -march=native -O2 -funroll-loops -Wall -Wextra h4m_audio_decode.c -o h4m -DNATIVE=1``
+
+
 04. You should be left with a "h4m" file within the same folder after the compile has been completed.
 
 ## Decoding / Usage
